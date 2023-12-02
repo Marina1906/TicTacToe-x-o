@@ -9,13 +9,13 @@ function App () {
   function handleSelectSquare (rowIndex, colIndex) {
     setActivePlayer (curActivePlayer => (curActivePlayer === 'X' ? 'O' : 'X'));
     setGameTurns (prevTurns => {
-      let currentPlayer= 'X';
+      let currentPlayer = 'X';
 
       if (prevTurns.negth > 0 && prevTurns[0].player === 'X') {
-        currentPlayer = 'O'
+        currentPlayer = 'O';
       }
       const updatedTurns = [
-        {square: {row: rowIndex, col: colIndex}, player:currentPlayer },
+        {square: {row: rowIndex, col: colIndex}, player: currentPlayer},
         ...prevTurns,
       ];
       return updatedTurns;
@@ -37,13 +37,10 @@ function App () {
           />
         </ol>
 
-        <GameBoard
-          onSelectSquare={handleSelectSquare}
-          turns = {gameTurns}
-        />
+        <GameBoard onSelectSquare={handleSelectSquare} turns={gameTurns} />
       </div>
 
-      <Log turns={gameTurns}/>
+      <Log turns={gameTurns} />
     </main>
   );
 }
