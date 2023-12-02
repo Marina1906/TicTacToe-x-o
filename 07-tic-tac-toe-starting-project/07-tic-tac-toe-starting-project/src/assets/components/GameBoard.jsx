@@ -8,7 +8,16 @@ const InitialGamBoard = [
 ];
 
 export default function GameBoard ({onSelectSquare}) {
-const [GameBoard, setGameBoard] = useState(InitialGamBoard);
+let gameBoard = InitialGamBoard;
+
+for (const turn of turns) {
+    const { square, player}=turn;
+    const {row, col}= square;
+
+    gameBoard[row] [col]= player;
+}
+
+/*const [GameBoard, setGameBoard] = useState(InitialGamBoard);
 function handleSelectSquare (rowIndex, colIndex) {
     setGameBoard((prevGameBoard)=>{
         const updatedBoard = [...prevGameBoard.map(innerArray =>[...innerArray])];
@@ -16,7 +25,7 @@ updatedBoard[rowIndex] [colIndex] = 'X';
 return updatedBoard;
     });
     onSelectSquare();
-}
+}*/
 
   return (
     <ol id="game-board">
@@ -26,7 +35,7 @@ return updatedBoard;
           <ol>
             {row.map ((playerSymbol, colIndex) => (
               <li key={colIndex}>
-                <button onClick={onSelectSquare}>{playerSymbol}</button>
+                <button onClick={()=>onSelectSquare(rowIndex, colIndex)}>{playerSymbol}</button>
                 </li>
             ))}
           </ol>

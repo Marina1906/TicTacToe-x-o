@@ -39,11 +39,11 @@ function App () {
 
         <GameBoard
           onSelectSquare={handleSelectSquare}
-          activePlayerSymbol={activePlayer}
+          turns = {gameTurns}
         />
       </div>
 
-      LOG
+      <Log turns={gameTurns}/>
     </main>
   );
 }
