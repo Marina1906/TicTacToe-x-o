@@ -10,12 +10,12 @@ function handleSelectSquare (){
   return (
     <main>
       <div id="game-container">
-      <ol id="players">
-     <Player InitialName="Player 1" symbol= "X"/>
+      <ol id="players" className="highlight-player">
+     <Player InitialName="Player 1" symbol= "X" isActive = {activePlayer==='X'}/>
      <Player InitialName="Player 2" symbol= "O"/>
       </ol>
 
-      <GameBoard/>
+      <GameBoard onSelectSquare={handleSelectSquare}/>
       </div>
 
       LOG
