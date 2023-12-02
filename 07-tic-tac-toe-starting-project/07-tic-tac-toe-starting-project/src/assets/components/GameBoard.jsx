@@ -1,7 +1,5 @@
 
 
-import {useState} from 'react';
-
 
 const InitialGamBoard = [
   [null, null, null],
@@ -9,7 +7,7 @@ const InitialGamBoard = [
   [null, null, null],
 ];
 
-export default function GameBoard ({onSelectSquare, activePlayerSymbol}) {
+export default function GameBoard ({onSelectSquare}) {
 const [GameBoard, setGameBoard] = useState(InitialGamBoard);
 function handleSelectSquare (rowIndex, colIndex) {
     setGameBoard((prevGameBoard)=>{
@@ -28,7 +26,7 @@ return updatedBoard;
           <ol>
             {row.map ((playerSymbol, colIndex) => (
               <li key={colIndex}>
-                <button onClick={() =>handleSelectSquare(rowIndex, colIndex)}>{playerSymbol}</button>
+                <button onClick={onSelectSquare}>{playerSymbol}</button>
                 </li>
             ))}
           </ol>
