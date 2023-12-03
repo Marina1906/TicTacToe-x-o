@@ -29,7 +29,7 @@ O: 'Player 2',
       firstSquareSymbol === secondSquareSymbol &&
       firstSquareSymbol === thirdSquareSymbol
     ) {
-      winner = firstSquareSymbol;
+      winner = players [firstSquareSymbol];
     }
   }
 
@@ -71,11 +71,13 @@ function handlePlayerNameChange (symbol, newName){
             InitialName="Player 1"
             symbol="X"
             isActive={activePlayer === 'X'}
+            onChangeName = {handlePlayerNameChange}
           />
           <Player
             InitialName="Player 2"
             symbol="O"
             isActive={activePlayer === 'O'}
+            onChangeName = {handlePlayerNameChange}
           />
         </ol>
         {(winner || hasDraw) && <GameOver winner = {winner} onRestart = {handleRestart}/>}
