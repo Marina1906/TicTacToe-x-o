@@ -11,7 +11,10 @@ function App () {
   const [activePlayer, setActivePlayer] = useState ('X');
 
 for (const combination of WINNING_COMBINATIONS) {
-  const 
+  const firstSquareSymbol
+  const secondSquareSymbol
+  const thirdSquareSymbol
+  
 }
 
   function handleSelectSquare (rowIndex, colIndex) {

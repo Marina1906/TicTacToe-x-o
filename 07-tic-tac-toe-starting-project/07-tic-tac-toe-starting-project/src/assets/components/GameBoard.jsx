@@ -1,13 +1,9 @@
-const InitialGamBoard = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-];
+
 
 export default function GameBoard({onSelectSquare}) {
   let gameBoard = InitialGamBoard;
 
-  for (const turn of turns) {
+  for (const turn of gameTurns) {
     const {square, player} = turn;
     const {row, col} = square;
 
