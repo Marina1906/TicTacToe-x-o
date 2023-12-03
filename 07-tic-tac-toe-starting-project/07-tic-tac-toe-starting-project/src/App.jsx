@@ -5,6 +5,11 @@ import Log from './components/Log.jsx';
 import GameOver from './components/GameOver.jsx';
 import {WINNING_COMBINATIONS} from './winning-combinations.js';
 
+function deriveWinner (gameBoard, layers) {
+  let winnner;
+
+}
+
 function App () {
 const [players, setPlayers] = useState ({
 X: 'Player 1',
@@ -32,7 +37,9 @@ O: 'Player 2',
       winner = players [firstSquareSymbol];
     }
   }
-
+  return winner;
+}
+const winner = deriveWinner (gameBoard, players);
   const hasDraw = gameTurns.length===9 && !winner;
 
   function handleSelectSquare (rowIndex, colIndex) {
@@ -40,7 +47,7 @@ O: 'Player 2',
     setGameTurns (prevTurns => {
       let currentPlayer = 'X';
 
-      if (prevTurns.negth > 0 && prevTurns[0].player === 'X') {
+      if (prevTurns.length > 0 && prevTurns[0].player === 'X') {
         currentPlayer = 'O';
       }
       const updatedTurns = [
