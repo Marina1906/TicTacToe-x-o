@@ -3,6 +3,14 @@ import Player from './components/Player.jsx';
 import GameBoard from './components/GameBoard.jsx';
 import Log from './components/Log.jsx';
 
+const WINNING_COMBINATIONS = [
+  [
+    { row:0, col:0},
+    { row:0, col:1},
+    { row:0, col:2},
+  ]
+];
+
 function App () {
   const [gameTurns, setGameTurns] = useState ([]);
   const [activePlayer, setActivePlayer] = useState ('X');
